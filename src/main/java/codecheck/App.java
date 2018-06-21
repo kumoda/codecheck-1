@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -19,7 +20,13 @@ public class App {
         }
 
         String urlTmp = "http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args);
+        try {
         String apiUrl = URLEncoder.encode(urlTmp,"UTF-8");
+        } catch(UnsupportedEncodingException e )
+        {
+
+            e.printStackTrace();
+        }
         //System.out.println(apiUrl);
         URL connectUrl;
         try {
