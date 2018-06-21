@@ -19,10 +19,10 @@ public class App {
             System.out.println("error");
         }
 
-        String urlTmp = "http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args);
+        String urlTmp = String.join(" ", args);
 
         try {
-            String apiUrl = URLEncoder.encode(urlTmp,"UTF-8");
+            String apiUrl = "http://challenge-server.code-check.io/api/hash?q=" + URLEncoder.encode(urlTmp,"UTF-8");
 
         //System.out.println(apiUrl);
             URL connectUrl;
