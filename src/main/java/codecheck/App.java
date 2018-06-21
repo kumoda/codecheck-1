@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
 public class App {
     public static void main(String[] args) {
         if (args == null || args.equals("")) {
@@ -40,7 +41,7 @@ public class App {
             for (int i = 0; i < jsonArray.length(); i++) {
               //JSONオブジェクトをパースして、レコードのname属性をログ出力
               JSONObject jsonObject = jsonArray.getJSONObject(i);
-              Log.d("HTTP REQ", jsonObject.getString("name"));
+              System.out.println(jsonObject.getString());
             }
 
 //            System.out.println("レスポンスヘッダ:");
