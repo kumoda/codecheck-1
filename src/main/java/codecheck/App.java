@@ -1,6 +1,9 @@
 package codecheck;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -20,10 +23,23 @@ public class App {
             con.setDoOutput(true);
             con.setInstanceFollowRedirects(true);
 
-            System.out.println("レスポンスヘッダ:");
-            System.out.println("レスポンスコード[" + con.getResponseCode() + "] " +
-                                        "レスポンスメッセージ[" + con.getResponseMessage() + "]");
-            System.out.println("レスポンスボディ[" + con.getContent());
+            final InputStream in = con.getInputStream();
+            final String encoding = con.getContentEncoding();
+            final InputStreamReader inReader = new InputStreamReader(in, encoding);
+            final BufferedReader bufReader = new BufferedReader(inReader);
+            String line = null;
+            // 1行ずつテキストを読み込む
+            while((line = bufReader.readLine()) != null) {
+                System.out.println(line);
+            }
+            bufReader.close();
+            inReader.close();
+            in.close();
+
+//            System.out.println("レスポンスヘッダ:");
+//            System.out.println("レスポンスコード[" + con.getResponseCode() + "] " +
+//                                        "レスポンスメッセージ[" + con.getResponseMessage() + "]");
+//            System.out.println("レスポンスボディ[" + con.getContent());
         } catch (IOException e) {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();
