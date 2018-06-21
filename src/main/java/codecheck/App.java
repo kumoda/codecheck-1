@@ -24,8 +24,7 @@ public class App {
             con.setInstanceFollowRedirects(true);
 
             final InputStream in = con.getInputStream();
-            final String encoding = con.getContentEncoding();
-            final InputStreamReader inReader = new InputStreamReader(in, encoding);
+            final InputStreamReader inReader = new InputStreamReader(in);
             final BufferedReader bufReader = new BufferedReader(inReader);
             String line = null;
             // 1行ずつテキストを読み込む
