@@ -6,7 +6,10 @@ import java.net.URL;
 
 public class App {
     public static void main(String[] args) {
-        String apiUrl = "/api/hash";
+        if (args == null || args.equals("")) {
+            System.out.println("error");
+        }
+        String apiUrl = "http://challenge-server.code-check.io/api/hash?q=" + args;
         URL connectUrl;
         try {
             connectUrl = new URL(apiUrl);
