@@ -6,7 +6,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import net.sf.json.*;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 
 
 public class App {
@@ -31,13 +33,24 @@ public class App {
             String line = null;
             // 1行ずつテキストを読み込む
             while((line = bufReader.readLine()) != null) {
-                System.out.println(line);
-                JSONArray jsonArray = new JSONArray(line);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                  //JSONオブジェクトをパースして、レコードのname属性をログ出力
-                  JSONObject jsonObject = jsonArray.getJSONObject(i);
-                  System.out.println(jsonObject.getString());
+
+                JSONObject obj = new JSONObject(line);
+
+                Map<String, Object> map = new HashMap<>();
+                for(Object key : obj.keySet()) {
+                    map.put((String) key, obj.get((String) key));
                 }
+
+                System.out.println(map.get("hash"));
+//
+//
+//                System.out.println(line);
+//                JSONArray jsonArray = new JSONArray(line);
+//                for (int i = 0; i < jsonArray.length(); i++) {
+//                  //JSONオブジェクトをパースして、レコードのname属性をログ出力
+//                  JSONObject jsonObject = jsonArray.getJSONObject(i);
+//                  System.out.println(jsonObject.getString());
+//                }
             }
             bufReader.close();
             inReader.close();
