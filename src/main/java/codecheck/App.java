@@ -31,18 +31,19 @@ public class App {
             // 1行ずつテキストを読み込む
             while((line = bufReader.readLine()) != null) {
                 System.out.println(line);
+                JSONArray jsonArray = new JSONArray(line);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                  //JSONオブジェクトをパースして、レコードのname属性をログ出力
+                  JSONObject jsonObject = jsonArray.getJSONObject(i);
+                  System.out.println(jsonObject.getString());
+                }
             }
             bufReader.close();
             inReader.close();
             in.close();
 
 
-            JSONArray jsonArray = new JSONArray(line);
-            for (int i = 0; i < jsonArray.length(); i++) {
-              //JSONオブジェクトをパースして、レコードのname属性をログ出力
-              JSONObject jsonObject = jsonArray.getJSONObject(i);
-              System.out.println(jsonObject.getString());
-            }
+
 
 //            System.out.println("レスポンスヘッダ:");
 //            System.out.println("レスポンスコード[" + con.getResponseCode() + "] " +
