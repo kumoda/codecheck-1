@@ -35,6 +35,14 @@ public class App {
             inReader.close();
             in.close();
 
+
+            JSONArray jsonArray = new JSONArray();
+            for (int i = 0; i < jsonArray.length(); i++) {
+              //JSONオブジェクトをパースして、レコードのname属性をログ出力
+              JSONObject jsonObject = jsonArray.getJSONObject(i);
+              Log.d("HTTP REQ", jsonObject.getString("name"));
+            }
+
 //            System.out.println("レスポンスヘッダ:");
 //            System.out.println("レスポンスコード[" + con.getResponseCode() + "] " +
 //                                        "レスポンスメッセージ[" + con.getResponseMessage() + "]");
