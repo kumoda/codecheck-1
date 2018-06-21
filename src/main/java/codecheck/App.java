@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import net.sf.json.*;
 
 
 public class App {
@@ -38,7 +37,7 @@ public class App {
             in.close();
 
 
-            JSONArray jsonArray = new JSONArray();
+            JSONArray jsonArray = new JSONArray(line);
             for (int i = 0; i < jsonArray.length(); i++) {
               //JSONオブジェクトをパースして、レコードのname属性をログ出力
               JSONObject jsonObject = jsonArray.getJSONObject(i);
