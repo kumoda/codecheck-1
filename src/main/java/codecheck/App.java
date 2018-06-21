@@ -20,15 +20,13 @@ public class App {
         }
 
         String urlTmp = "http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args);
-        String apiUrl;
+
         try {
-            apiUrl = URLEncoder.encode(urlTmp,"UTF-8");
-        } catch(UnsupportedEncodingException e ) {
-            e.printStackTrace();
-        }
+            String apiUrl = URLEncoder.encode(urlTmp,"UTF-8");
+
         //System.out.println(apiUrl);
-        URL connectUrl;
-        try {
+            URL connectUrl;
+
             connectUrl = new URL(apiUrl);
 
             HttpURLConnection con = (HttpURLConnection)connectUrl.openConnection();
