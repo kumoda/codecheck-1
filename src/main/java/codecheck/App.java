@@ -18,7 +18,8 @@ public class App {
             System.out.println("error");
         }
 
-        String apiUrl = URLEncoder.encode("http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args),"UTF-8");
+        String urlTmp = "http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args);
+        String apiUrl = URLEncoder.encode(urlTmp,"UTF-8");
         //System.out.println(apiUrl);
         URL connectUrl;
         try {
