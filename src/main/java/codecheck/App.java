@@ -18,7 +18,7 @@ public class App {
         }
 
         String apiUrl = "http://challenge-server.code-check.io/api/hash?q=" + String.join("%20", args);
-        System.out.println(apiUrl);
+        //System.out.println(apiUrl);
         URL connectUrl;
         try {
             connectUrl = new URL(apiUrl);
