@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -17,7 +18,7 @@ public class App {
             System.out.println("error");
         }
 
-        String apiUrl = "http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args);
+        String apiUrl = URLEncoder.encode("http://challenge-server.code-check.io/api/hash?q=" + String.join(" ", args),"UTF-8");
         //System.out.println(apiUrl);
         URL connectUrl;
         try {
