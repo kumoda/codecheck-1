@@ -23,6 +23,7 @@ public class App {
             System.out.println("レスポンスヘッダ:");
             System.out.println("レスポンスコード[" + con.getResponseCode() + "] " +
                                         "レスポンスメッセージ[" + con.getResponseMessage() + "]");
+            System.out.println("レスポンスボディ[" + con.getContent());
         } catch (IOException e) {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();
